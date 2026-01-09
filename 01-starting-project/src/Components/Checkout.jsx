@@ -8,8 +8,9 @@ import { useHttp } from "../Hooks/useHttp.js";
 export default function Checkout() {
   const userCtx = useContext(UserProgressContext);
   const cartCtx = useContext(CartContext);
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3000";
   const { isLoading, error: serverError, sendRequest } = useHttp(
-    "http://localhost:3000/orders",
+    `${apiUrl}/orders`,
     { method: "POST" }
   );
 
